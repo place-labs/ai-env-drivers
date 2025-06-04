@@ -139,7 +139,9 @@ There is additional documentation here: https://github.com/spider-gazelle/tokeni
 
 ### Running Tests
 
-- Use `./harness report drivers/path/to/driver.cr` from drivers directory
+- from the drivers directory
+- first format the code specifying the files `crystal tool format drivers/path/to/driver.cr drivers/path/to/driver_spec.cr`
+- Use `./harness report drivers/path/to/driver.cr --no-colour --basic-render --verbose`
 - Tests must compile and pass before deployment
 
 ### File Organization
