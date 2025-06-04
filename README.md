@@ -19,13 +19,13 @@ git submodule update --init --recursive
 
 ### 2. Setup Claude Code
 
-1. Install Claude Code following the instructions at [docs.anthropic.com/claude-code](https://docs.anthropic.com/claude-code)
+1. Install Claude Code following the instructions at [docs.anthropic.com/claude-code](https://docs.anthropic.com/en/docs/claude-code/overview)
 2. Get your API key from Bitwarden (search for "Claude API")
 3. Configure Claude Code with your API key
 
 ### 3. Setup Markitdown MCP Server
 
-The markitdown MCP server allows Claude to read device documentation PDFs. Setup using Docker:
+The [markitdown MCP server](https://github.com/microsoft/markitdown) allows Claude to read device documentation PDFs. Setup using Docker:
 
 ```bash
 cd markitdown
