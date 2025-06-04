@@ -1,9 +1,6 @@
 [submodule "drivers"]
 	path = drivers
 	url = https://github.com/placeos/drivers
-[submodule "placeos"]
-	path = placeos
-	url = https://github.com/PlaceOS/placeos
 [submodule "calendar"]
 	path = calendar
 	url = https://github.com/PlaceOS/calendar
