@@ -41,7 +41,7 @@ docker build -t markitdown-mcp:latest .
 
 2. Start Claude Code:
    ```bash
-   claude
+   claude --mcp-config ./claude_desktop_config.json
    ```
 
 3. Tell Claude what driver you want to develop, including:
