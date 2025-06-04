@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "markitdown": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-v",
+        "/home/user/data:/docs",
+        "markitdown-mcp:latest"
+      ]
+    }
+  }
+}

@@ -7,6 +7,7 @@
 - Two main repositories:
   - `drivers/` - Contains drivers for various building automation devices
   - `calendar/` - Contains a standardised interface for cloud based calendaring solutions, with Office365 and Google currently supported
+- use the `docs/` folder to store downloaded documents and any markdown outputs from `markitdown`
 
 ## Driver Development Resources
 
