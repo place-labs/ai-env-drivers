@@ -28,8 +28,8 @@ git submodule update --init --recursive
 The [markitdown MCP server](https://github.com/microsoft/markitdown) allows Claude to read device documentation PDFs. Setup using Docker:
 
 ```bash
-cd markitdown
-docker build -t markitdown-mcp -f packages/markitdown-mcp/Dockerfile .
+cd markitdown/packages/markitdown-mcp
+docker build -t markitdown-mcp:latest .
 ```
 
 ## Usage
