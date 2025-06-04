@@ -68,7 +68,6 @@ Claude will:
 ## Repository Structure
 
 - `drivers/` - PlaceOS drivers repository (submodule)
-- `placeos/` - PlaceOS platform code (submodule)  
 - `calendar/` - Calendar service drivers (submodule)
 - `markitdown/` - PDF documentation reader (submodule)
 - `CLAUDE.md` - Development context and guidelines for Claude
@@ -77,4 +76,5 @@ Claude will:
 
 - [PlaceOS Driver Documentation](https://docs.placeos.com/tutorials/backend/write-a-driver)
 - [Testing Documentation](https://docs.placeos.com/tutorials/backend/write-a-driver/testing-drivers)
-- [Crystal Language Reference](https://crystal-lang.org/reference/latest/)
+- [Crystal Lang Book](https://crystal-lang.org/reference/latest/)
+- [Crystal Lang API Reference](https://crystal-lang.org/api/latest/)
