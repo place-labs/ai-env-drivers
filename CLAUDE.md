@@ -151,6 +151,7 @@ There is additional documentation here: https://github.com/spider-gazelle/tokeni
 - Place drivers in appropriate vendor subdirectory under `drivers/`
 - Use snake_case for file names
 - Include protocol documentation links in driver comments
+- Remove any files you created during the development process that are no longer needed, failed experiments etc.
 
 ## Protocol Implementation Guidelines
 
