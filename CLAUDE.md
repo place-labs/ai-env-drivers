@@ -141,8 +141,10 @@ There is additional documentation here: https://github.com/spider-gazelle/tokeni
 
 - from the drivers directory
 - first format the code specifying the files `crystal tool format drivers/path/to/driver.cr drivers/path/to/driver_spec.cr`
-- Use `./harness report drivers/path/to/driver.cr --no-colour --basic-render --verbose`
+- Use `./harness report drivers/path/to/driver.cr --no-colour --basic-render --verbose` to run the `driver_spec.cr` against the driver
+  - ignore `WARN` statements that occur before the test
 - Tests must compile and pass before deployment
+  - there are 3 types of failure: driver fails to compile, test fails to compile and test doesn't pass. Harness will output the details of any failure with backtraces.
 
 ### File Organization
 
