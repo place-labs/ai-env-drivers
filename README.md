@@ -7,14 +7,10 @@ This repository provides a complete development environment for PlaceOS drivers 
 ### 1. Clone Repository with Submodules
 
 If you haven't cloned this repository yet:
-```bash
-git clone --recurse-submodules https://github.com/PlaceOS/ai-env-drivers.git
-cd ai-env-drivers
-```
 
-If you've already cloned without submodules:
-```bash
-git submodule update --init --recursive
+```shell
+git clone https://github.com/PlaceOS/ai-env-drivers.git
+cd ai-env-drivers
 ```
 
 ### 2. Setup Claude Code
@@ -30,15 +26,6 @@ npm install -g @anthropic-ai/claude-code --force --no-os-check
 1. Install Claude Code following the instructions at [docs.anthropic.com/claude-code](https://docs.anthropic.com/en/docs/claude-code/overview)
 2. Get your API key from Bitwarden (search for "Claude API")
 3. Configure Claude Code with your API key
-
-### 3. Setup Markitdown MCP Server
-
-The [markitdown MCP server](https://github.com/microsoft/markitdown) allows Claude to read device documentation PDFs. Setup using Docker:
-
-```bash
-cd markitdown/packages/markitdown-mcp
-docker build -t markitdown-mcp:latest .
-```
 
 ## Usage
 

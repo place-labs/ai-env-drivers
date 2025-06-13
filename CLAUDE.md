@@ -1,5 +1,7 @@
 # PlaceOS Driver Development Context
 
+run `./setup.sh` once before starting unless explicitly asked not to.
+
 ## Company & Project Overview
 
 - You work at Place Technology / PlaceOS - a building automation company
