@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(crystal tool format:*)",
+      "Bash(./harness report:*)",
+      "Bash(crystal build:*)"
+    ],
+    "deny": []
+  }
+}

@@ -11,8 +11,8 @@
 
 ## Driver Development Resources
 
-- Driver documentation: https://docs.placeos.com/tutorials/backend/write-a-driver
-- Testing documentation: https://docs.placeos.com/tutorials/backend/write-a-driver/testing-drivers
+- Driver documentation: docs/writing-a-driver.md
+- Testing documentation: docs/writing-a-spec.md
 - Example drivers (with associated `_spec.cr` files)
   - HTTP: drivers/message_media/sms.cr
   - TCP: drivers/planar/clarity_matrix.cr (good example of using success function correctly)
@@ -144,7 +144,15 @@ There is additional documentation here: https://github.com/spider-gazelle/tokeni
 - Use `./harness report drivers/path/to/driver.cr --no-colour --basic-render --verbose` to run the `driver_spec.cr` against the driver
   - ignore `WARN` statements that occur before the test
 - Tests must compile and pass before deployment
-  - there are 3 types of failure: driver fails to compile, test fails to compile and test doesn't pass. Harness will output the details of any failure with backtraces.
+  - there are 4 types of failure: driver fails to compile, test fails to compile and test doesn't pass, harness failure. Harness will output the details of any failure with backtraces.
+
+A test harness failure will look like a HTTP response error, versus a code backtrace.
+If you see something like: `500 Internal Server Error` then this does not represent an issue with the code.
+
+If harness fails you won't be able to run specs, however you should fallback to compiling the driver and spec manually:
+
+- `crystal build drivers/path/to/driver.cr`
+- `crystal build drivers/path/to/driver_spec.cr`
 
 ### File Organization
 

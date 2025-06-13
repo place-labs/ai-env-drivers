@@ -19,6 +19,14 @@ git submodule update --init --recursive
 
 ### 2. Setup Claude Code
 
+Make sure `npm` is installed, you can use [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+
+```shell
+nvm use node
+npm config set os linux
+npm install -g @anthropic-ai/claude-code --force --no-os-check
+```
+
 1. Install Claude Code following the instructions at [docs.anthropic.com/claude-code](https://docs.anthropic.com/en/docs/claude-code/overview)
 2. Get your API key from Bitwarden (search for "Claude API")
 3. Configure Claude Code with your API key
