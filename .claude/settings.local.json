@@ -4,7 +4,8 @@
       "Bash(crystal tool format:*)",
       "Bash(./harness report:*)",
       "Bash(crystal build:*)",
-      "Bash(./setup.sh)"
+      "Bash(./setup.sh)",
+      "Bash(git checkout:*)"
     ],
     "deny": []
   }
