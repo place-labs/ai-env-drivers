@@ -30,16 +30,21 @@ npm install -g @anthropic-ai/claude-code --force --no-os-check
 ## Usage
 
 1. Navigate to the ai-env-drivers directory:
-   ```bash
+   ```shell
    cd ai-env-drivers
    ```
 
-2. Start Claude Code:
-   ```bash
+2. Run setup to ensure we're ready for the AI
+   ```shell
+   ./setup.sh
+   ```
+
+3. Start Claude Code:
+   ```shell
    claude --mcp-config ./claude_desktop_config.json
    ```
 
-3. Tell Claude what driver you want to develop, including:
+4. Tell Claude what driver you want to develop, including:
    - Device manufacturer and model
    - Communication protocol (TCP, UDP, Serial, HTTP)
    - Links to device documentation (PDFs, protocol specs, etc.)
