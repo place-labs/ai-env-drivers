@@ -26,6 +26,8 @@ run `./setup.sh` once before starting unless explicitly asked not to.
 
 after running `git submodule update --remote --merge` on the base repository and `shards install` in the drivers folder; you'll see a `lib` folder added to the drivers folder, this has the `placeos-driver` folder in it which is a shard that represents the base class for all drivers. You can also find our standard set of interfaces at `placeos-driver/src/placeos-driver/interface/`
 
+Search the web for additional documentation. Don't create likely structures - all code should be grounded verifiable truth. If you can't the answer for something try asking for help or validation, you are pair programming.
+
 ## Driver Development Standards
 
 ### Structure & Patterns
@@ -83,6 +85,21 @@ By default the queue has a timeout of 5 seconds. That is, if abort or success is
 The timeout can be configured: `send(data, timeout: 5.seconds)`
 
 All the send options can be set directly on the `queue` object in the `on_load` function.
+
+#### HTTP Basic Auth
+
+HTTP service drivers implement basic authentication transparently. Just define your settings like:
+
+```crystal
+  default_settings({
+    basic_auth: {
+      username: "admin",
+      password: "admin",
+    },
+  })
+```
+
+as per the example `drivers/message_media/sms.cr` driver and you don't need to explicitly set the `Authorization` header. Still good to check it's sent in the specs
 
 #### Tokenization
 
@@ -156,6 +173,13 @@ If harness fails you won't be able to run specs, however you should fallback to 
 - `crystal build drivers/path/to/driver.cr`
 - `crystal build drivers/path/to/driver_spec.cr`
 
+need to use `?` accessor for tests checking if a status has been set as it will raise an error if nil without the `?`:
+
+```crystal
+channels = status["channels"]?
+channels.should_not be_nil
+```
+
 ### File Organization
 
 - Place drivers in appropriate vendor subdirectory under `drivers/`
@@ -172,6 +196,12 @@ If harness fails you won't be able to run specs, however you should fallback to 
 - Follow exact byte sequences from device documentation where possible. This helps validate correctness.
 - Use enums for command constants and states
 - Implement proper error handling and NACK / BUSY responses
+- where an API returns complex responses create models that represent the responses.
+  - use a `{driver_name}_model.cr` file for storing models
+  - for json responses use `JSON::Serializable`
+    - exmaple: `drivers/juniper/mist_models.cr` or `drivers/lutron/vive_leap_models.cr`
+  - for binary protocols, use [BinData](https://github.com/spider-gazelle/bindata) where it makes sense
+    - exmaple: `drivers/ashrae/bacnet_models.cr`
 
 ## Common Device Types
 
