@@ -10,6 +10,7 @@ run `./setup.sh` once before starting unless explicitly asked not to.
   - `drivers/` - Contains another `drivers` folder containing various building automation devices. i.e. `cd drivers && crystal build drivers/message_media/sms.cr`
   - `calendar/` - Contains a standardised interface for cloud based calendaring solutions, with Office365 and Google currently supported
 - use the `docs/` folder to store downloaded documents and any markdown outputs from `markitdown`
+- when compiling and testing drivers, make sure you do so from the correct directory. `drivers/` not `drivers/drivers/`
 
 ## Driver Development Resources
 
