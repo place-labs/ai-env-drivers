@@ -155,6 +155,10 @@ There is additional documentation here: https://github.com/spider-gazelle/tokeni
 - Test with `should_send()`, `responds()`, `transmit()`, `exec()`
 - Use exact protocol examples from device documentation when possible
 - Test command flow: `exec(:method)` → `should_send(expected_bytes)` → `responds(response_bytes)` → verify state
+- only a single `DriverSpecs.mock_driver` in the spec file
+- all specs to be contained in the `mock_driver` block
+- supports `it "should" do` blocks inside the `mock_driver` block
+- does not support `describe Klass do` blocks
 
 ### Running Tests
 
