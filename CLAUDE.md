@@ -38,6 +38,7 @@ Search the web for additional documentation. Don't create likely structures - al
 - Include `descriptive_name` and `generic_name`. A `description` is optional but useful if the docs indicate settings on the device need to be configured or an API key needs to be generated etc. Describe the requirement here.
 - Set `udp_port`, `tcp_port` or `uri_base` as appropriate (a TCP port of 22 will assume SSH protocol, the send and received functions represent the text sent to and from the established shell)
 - Use `default_settings({})` for configuration
+  - NOTE:: device IP and Port details are configured at the platform level. If you need these details for some reason, like if a device uses a different port for some requests, you can grab them from the `config` helper method which returns an object defined in `./drivers/lib/placeos-driver/src/placeos-driver/driver_model.cr`
 
 ### State Management
 
