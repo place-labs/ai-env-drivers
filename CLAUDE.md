@@ -7,7 +7,7 @@ run `./setup.sh` once before starting unless explicitly asked not to.
 - You work at Place Technology / PlaceOS - a building automation company
 - Use Crystal language to write drivers
 - Two main repositories:
-  - `drivers/` - Contains drivers for various building automation devices
+  - `drivers/` - Contains another `drivers` folder containing various building automation devices. i.e. `cd drivers && crystal build drivers/message_media/sms.cr`
   - `calendar/` - Contains a standardised interface for cloud based calendaring solutions, with Office365 and Google currently supported
 - use the `docs/` folder to store downloaded documents and any markdown outputs from `markitdown`
 
