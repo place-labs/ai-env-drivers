@@ -180,6 +180,8 @@ channels = status["channels"]?
 channels.should_not be_nil
 ```
 
+When testing status, by preference check the value instead of using `.should_not be_nil` as this will also reveal any potential issues.
+
 ### File Organization
 
 - Place drivers in appropriate vendor subdirectory under `drivers/`
@@ -199,9 +201,10 @@ channels.should_not be_nil
 - where an API returns complex responses create models that represent the responses.
   - use a `{driver_name}_model.cr` file for storing models
   - for json responses use `JSON::Serializable`
-    - exmaple: `drivers/juniper/mist_models.cr` or `drivers/lutron/vive_leap_models.cr`
+    - example: `drivers/juniper/mist_models.cr` or `drivers/lutron/vive_leap_models.cr`
+    - don't make all fields optional otheriwse specs may pass without flagging errors
   - for binary protocols, use [BinData](https://github.com/spider-gazelle/bindata) where it makes sense
-    - exmaple: `drivers/ashrae/bacnet_models.cr`
+    - example: `drivers/ashrae/bacnet_models.cr`
 
 ## Common Device Types
 
