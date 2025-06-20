@@ -8,7 +8,11 @@
       "Bash(git checkout:*)",
       "WebFetch(domain:gitlab.com)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "mcp__markitdown__convert_to_markdown",
+      "Bash(ls:*)",
+      "Bash(shards install:*)",
+      "Bash(mv:*)"
     ],
     "deny": []
   }
