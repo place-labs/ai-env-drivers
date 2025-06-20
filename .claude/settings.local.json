@@ -5,7 +5,10 @@
       "Bash(./harness report:*)",
       "Bash(crystal build:*)",
       "Bash(./setup.sh)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "WebFetch(domain:gitlab.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ],
     "deny": []
   }
