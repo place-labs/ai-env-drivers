@@ -9,7 +9,10 @@ run `./setup.sh` once before starting unless explicitly asked not to.
 - Two main repositories:
   - `drivers/` - Contains another `drivers` folder containing various building automation devices. i.e. `cd drivers && crystal build drivers/message_media/sms.cr`
   - `calendar/` - Contains a standardised interface for cloud based calendaring solutions, with Office365 and Google currently supported
-- use the `docs/` folder to store downloaded documents and any markdown outputs from `markitdown`
+- files in the ./docs folder are mapped to /docs in markitdown.
+  - Use the `docs/` folder to store downloaded documents and any markdown outputs from `markitdown`
+  - If you have errors converting things to markdown stop and ask what to do differently.
+  - for example a file `./docs/protocol.pdf` will be located at `/docs/protocol.pdf` in markitdown build URIs with an empty netloc: `file:///docs/protocol.pdf`
 - when compiling and testing drivers, make sure you do so from the correct directory. `drivers/` not `drivers/drivers/`
 
 ## Driver Development Resources

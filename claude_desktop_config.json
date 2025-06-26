@@ -7,7 +7,7 @@
         "--rm",
         "-i",
         "-v",
-        "/home/user/data:/docs",
+        "./docs:/docs",
         "markitdown-mcp:latest"
       ]
     }

@@ -14,7 +14,9 @@
       "Bash(shards install:*)",
       "Bash(mv:*)",
       "Bash(wget:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(curl:*)",
+      "Bash(docker logs:*)"
     ],
     "deny": []
   }
