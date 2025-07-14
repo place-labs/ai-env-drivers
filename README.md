@@ -29,7 +29,7 @@ You'll require an account with access to Claude Code [docs.anthropic.com/claude-
 
 3. Start Claude Code:
    ```shell
-   claude --mcp-config ./claude_desktop_config.json
+   claude
    ```
 
 4. Tell Claude what driver you want to develop, including:

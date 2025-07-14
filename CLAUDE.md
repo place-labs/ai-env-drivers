@@ -194,6 +194,17 @@ There is additional documentation here: https://github.com/spider-gazelle/tokeni
 - supports `it "should" do` blocks inside the `mock_driver` block
 - does not support `describe Klass do` blocks
 - consider timeouts a failure. The `.get` function on `exec` responses in specs is a promise that resolves when the function returns a value. So this is most likely an issue with the command flow where responds or expect_http_request did not provide an appropriate response (or an error in the driver processing the response). These can be tricky to resolve as you may need to consider the current state of the driver and the specs that ran earlier.
+- To test `exec` responses using models, re-parse them in the correct type:
+
+```crystal
+# check exec response properly using models
+future = exec(:function)
+# ... perform command flow here: should_send, responds, expect_http_request etc
+
+# parse the output
+output = MyModel.from_json(future.get.to_json)
+output.field.should eq value
+```
 
 ### Running Tests
 
