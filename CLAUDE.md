@@ -32,6 +32,31 @@ after running `git submodule update --remote --merge` on the base repository and
 
 Search the web for additional documentation. Don't create likely structures - all code should be grounded verifiable truth. If you can't the answer for something try asking for help or validation, you are pair programming.
 
+### Development process
+
+#### Plan
+
+1. Understand the task that has been requested.
+2. Ask clarifying questions if necessary.
+3. Understand the prior art
+  - Search the codebase for relevant files
+  - Search scratchpads for previous thoughts on the task
+4. Think harder about how to break the task down into a series of small, managable tasks:
+  - what models are required, if any, to implement the driver
+  - does authentication require maintaining
+  - what status should be exposed as state (if the device has state, digital twin)
+  - what functions should return data (i.e. listing things in service / HTTP drivers)
+  - what functionality can be grouped together?
+    - Device drivers might have querying state vs changing device state
+    - Services / HTTP APIs there might be multiple CRUD endpoints
+5. Document your plan in the scratchpad
+
+#### Create and test
+
+1. ensure specs work while the project is small, before adding complexity.
+  - Implement some basic functionality and ensure specs run before continuing.
+2. Implement a group of functionality and test it before continuing to the next group
+
 ## Driver Development Standards
 
 ### Structure & Patterns
@@ -104,7 +129,10 @@ HTTP service drivers implement basic authentication transparently. Just define y
   })
 ```
 
-as per the example `drivers/message_media/sms.cr` driver and you don't need to explicitly set the `Authorization` header. Still good to check it's sent in the specs
+as per the example `drivers/message_media/sms.cr` driver and you don't need to explicitly set the `Authorization` header. Still good to check it's sent in the specs.
+
+- Service / HTTP API drivers should automatically authenticate and maintain valid authentication tokens without requiring explicit interaction. i.e. you can provide a `login` for testing, however drivers should lazily call this before executing other requests if there isn't already a valid session.
+  - only required if requests can't use basic auth or x-api-keys etc
 
 #### Tokenization
 
@@ -157,13 +185,15 @@ There is additional documentation here: https://github.com/spider-gazelle/tokeni
 
 - Create `*_spec.cr` files alongside drivers
 - Use `DriverSpecs.mock_driver "ClassName" do ... end`
-- Test with `should_send()`, `responds()`, `transmit()`, `exec()`
+- Test with `should_send()`, `responds()`, `transmit()`, `exec()`, `expect_http_request` (expect_http_request for testing http drivers)
 - Use exact protocol examples from device documentation when possible
 - Test command flow: `exec(:method)` → `should_send(expected_bytes)` → `responds(response_bytes)` → verify state
+  - for http requests flow: `exec(:method)` → `expect_http_request { |request, response| }` → verify state
 - only a single `DriverSpecs.mock_driver` in the spec file
 - all specs to be contained in the `mock_driver` block
 - supports `it "should" do` blocks inside the `mock_driver` block
 - does not support `describe Klass do` blocks
+- consider timeouts a failure. The `.get` function on `exec` responses in specs is a promise that resolves when the function returns a value. So this is most likely an issue with the command flow where responds or expect_http_request did not provide an appropriate response (or an error in the driver processing the response). These can be tricky to resolve as you may need to consider the current state of the driver and the specs that ran earlier.
 
 ### Running Tests
 
