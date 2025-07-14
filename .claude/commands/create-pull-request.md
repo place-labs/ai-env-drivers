@@ -1,4 +1,6 @@
-If you have been working on a driver implementation create a related pull request for the code changes in the `./drivers` repository.
+Create a pull request
+
+If you have been working on a driver implementation create a related pull request for the code changes in the `./drivers` repository. (you'll need to run git commands from this folder)
 
 Follow these steps:
 

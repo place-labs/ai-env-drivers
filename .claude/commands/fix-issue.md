@@ -1,8 +1,8 @@
-Please analyze and fix the GitHub issue: $ARGUMENTS.
+Fix the GitHub issue: $ARGUMENTS.
 
-Note:: all issues are related to the `./drivers` repository.
+Note:: all issues are related to the `./drivers` repository. (you'll need to run git commands from this folder)
 
-Follow these steps:
+Please analyze and follow these steps:
 
 # PLAN
 
