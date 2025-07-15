@@ -248,13 +248,28 @@ When testing status, by preference check the value instead of using `.should_not
 - Follow exact byte sequences from device documentation where possible. This helps validate correctness.
 - Use enums for command constants and states
 - Implement proper error handling and NACK / BUSY responses
-- where an API returns complex responses create models that represent the responses.
+- Create models that represent the responses and request bodies in JSON APIs
   - use a `{driver_name}_model.cr` file for storing models
   - for json responses use `JSON::Serializable`
     - example: `drivers/juniper/mist_models.cr` or `drivers/lutron/vive_leap_models.cr`
     - don't make all fields optional otheriwse specs may pass without flagging errors
   - for binary protocols, use [BinData](https://github.com/spider-gazelle/bindata) where it makes sense
     - example: `drivers/ashrae/bacnet_models.cr`
+
+Scope models at the manufacturer level. i.e.
+
+```crystal
+# file: drivers/manufacturer/product_models.cr
+module Manufacturer
+  struct ListResponse
+    include JSON::Serializable
+
+    # ...
+  end
+end
+```
+
+then we can use `class Manufacturer::Product < PlaceOS::Driver` without scope clashing
 
 ## Common Device Types
 

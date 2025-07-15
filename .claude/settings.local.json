@@ -19,5 +19,9 @@
       "Bash(docker logs:*)"
     ],
     "deny": []
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "markitdown"
+  ]
 }
