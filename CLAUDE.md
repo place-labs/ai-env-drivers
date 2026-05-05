@@ -15,7 +15,7 @@ run `./setup.sh` once before starting unless explicitly asked not to.
   - for example a file `./docs/protocol.pdf` will be located at `/docs/protocol.pdf` in markitdown build URIs with an empty netloc: `file:///docs/protocol.pdf`
 - when compiling and testing drivers, make sure you do so from the correct directory. `drivers/` not `drivers/drivers/`
 
-## Driver Development Resources
+## Device Driver Development Resources
 
 - Driver documentation: docs/writing-a-driver.md
 - Testing documentation: docs/writing-a-spec.md
@@ -297,6 +297,21 @@ The following resources are typically needed for driver development:
 - File system operations for creating/editing drivers
 - Bash commands for running harness and build tools
 - Web fetch capabilities for accessing protocol documentation
+
+## Logic Drivers
+
+Logic drivers perform actions against device drivers, coordinate interactions between modules and represent abstract or conceptual functions.
+
+Some good example logic driver specs to understand how to test and mock if asked to write a logic module.
+
+- src/place/bookings_spec.cr
+- src/place/booking_notifier_spec.cr
+- src/place/visitor_mailer_spec.cr
+- src/gallagher/zone_schedule_spec.cr
+- src/gallagher/parking_approvals_spec.cr
+
+When mocking drivers, copy the function signature from the drivers you are mocking.
+If you're implementing a device protocol, that's a device driver and no need to look at these specs.
 
 # General principles
 
