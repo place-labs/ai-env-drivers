@@ -210,7 +210,7 @@ output.field.should eq value
 
 - from the drivers directory
 - first format the code specifying the files `crystal tool format drivers/path/to/driver.cr drivers/path/to/driver_spec.cr`
-- Use `./harness report drivers/path/to/driver.cr --no-colour --basic-render --verbose` to run the `driver_spec.cr` against the driver
+- Use `./harness report drivers/place/survey_mailer.cr --no-colour --basic-render --verbose` to compile and run the `survey_mailer.cr` spec (for example)
   - ignore `WARN` statements that occur before the test
 - Tests must compile and pass before deployment
   - there are 4 types of failure: driver fails to compile, test fails to compile and test doesn't pass, harness failure. Harness will output the details of any failure with backtraces.
@@ -312,6 +312,20 @@ Some good example logic driver specs to understand how to test and mock if asked
 
 When mocking drivers, copy the function signature from the drivers you are mocking.
 If you're implementing a device protocol, that's a device driver and no need to look at these specs.
+
+## Hosting servers
+
+As the driver will be hosted deep in the clusters infrastructure it can't expose ports directly for devices to connect to. We have a service to do this: https://github.com/PlaceOS/dispatch
+
+Drivers can register the port and remote IP address they expect an incoming connection from using a websocket.
+The websocket encapsulates the transport data using a custom protocol (clone and instpect the dispatch repository for details if this functionality is required)
+
+Some example drivers are:
+
+* drivers/knx/udp_tunnel.cr
+* drivers/ashrae/bacnet.cr
+
+Those drivers perform all their comms via dispatch, however you may also establish a seperate websocket connection as part of the driver code where required.
 
 # General principles
 
