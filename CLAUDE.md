@@ -382,3 +382,8 @@ Those drivers perform all their comms via dispatch, however you may also establi
 
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code.  
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
+
+# debugging live systems
+
+PlaceOS provides MCP connections for capturing logs and interacting with live hardware and services.
+If the user is attempting to fix a bug occuring on a system and is happy to provide you access to debug or even execute functions against a module you can connect at `/api/engine/v2/mcp` on the applicable domain.
