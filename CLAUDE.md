@@ -327,6 +327,27 @@ Some example drivers are:
 
 Those drivers perform all their comms via dispatch, however you may also establish a seperate websocket connection as part of the driver code where required.
 
+## Security
+
+Individual functions can be rated for different access levels using annotations.
+
+```crystal
+# security levels prevent regular users from executing these methods
+@[Security(Level::Support)]
+def view_config
+end
+
+@[Security(Level::Administrator)]
+def edit_config
+end
+
+# sensitive methods don't log payload data if an error occurs
+# keeping passwords and credit card numbers out of logs
+@[Sensitive]
+def set_password(password : String)
+end
+```
+
 # General principles
 
 ## 1. Plan Node Default
